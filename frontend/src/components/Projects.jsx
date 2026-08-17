@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Folder, Play, X, ArrowLeft, ArrowRight } from 'lucide-react';
 import nswmc_thumbnail from '../assets/nswmc_thumbnail.png';
 import peso_thumbnail from '../assets/peso_thumbnail.png';
@@ -70,7 +70,7 @@ const Projects = () => {
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-          className={`flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-4 md:pt-0 -mt-4 md:mt-0 pb-6 md:pb-0 -mx-6 px-[10vw] md:mx-0 md:px-0 [-ms-overflow-style:none] [scrollbar-width:none] ${isDragging ? 'cursor-grabbing' : 'cursor-grab md:cursor-auto'}`}
+          className={`flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-4 md:pt-0 -mt-4 md:mt-0 pb-6 md:pb-0 -mx-6 px-[10vw] md:mx-0 md:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${isDragging ? 'cursor-grabbing' : 'cursor-grab md:cursor-auto'}`}
         >
           {projects.map((project) => (
             <div 
@@ -94,7 +94,7 @@ const Projects = () => {
                 {project.youtubeId && (
                   <div 
                     onClick={() => setActiveVideoId(project.youtubeId)}
-                    className="absolute inset-0 bg-theme-bg/60 hidden group-hover:flex items-center justify-center cursor-pointer"
+                    className="absolute inset-0 flex md:hidden group-hover:flex items-center justify-center cursor-pointer"
                   >
                     <div className="w-14 h-14 bg-[#ff4655] rounded-full flex items-center justify-center text-black hover:scale-110 transition-transform duration-150 ease-out">
                       <Play size={28} fill="black"/>
@@ -133,26 +133,26 @@ const Projects = () => {
 
       {/* YouTube Video Modal */}
       {activeVideoId && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-theme-bg/80 backdrop-blur-sm p-4 animate-in fade-in duration-300"
-          onClick={() => setActiveVideoId(null)}
-        >
-           {/* Close Button */}
-            <button 
-              className="absolute top-4 right-4 z-10 text-theme-text-muted hover:text-theme-primary p-2 transition-colors cursor-pointer"
-              onClick={() => setActiveVideoId(null)}
-              aria-label="Close Video"
-            >
-              <X size={24} />
-            </button>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop (Sibling layer to prevent iOS Safari backdrop-filter bugs with iframes) */}
           <div 
-            className="relative w-full max-w-5xl aspect-video bg-black overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside video
+            className="absolute inset-0 bg-theme-bg/90 backdrop-blur-sm animate-in fade-in duration-300"
+            onClick={() => setActiveVideoId(null)}
+          ></div>
+
+          {/* Close Button */}
+          <button 
+            className="absolute top-4 right-4 z-[110] text-theme-text-muted hover:text-[#ff4655] p-2 transition-colors cursor-pointer"
+            onClick={() => setActiveVideoId(null)}
+            aria-label="Close Video"
           >
-           
-            
+            <X size={28} strokeWidth={2.5} />
+          </button>
+
+          {/* Video Container */}
+          <div className="relative w-full max-w-5xl aspect-video bg-black overflow-hidden shadow-2xl z-[105] animate-in zoom-in-95 duration-300 rounded-sm">
             <iframe
-              className="w-full h-full"
+              className="absolute inset-0 w-full h-full pointer-events-auto"
               src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&rel=0`}
               title="YouTube video player"
               frameBorder="0"
