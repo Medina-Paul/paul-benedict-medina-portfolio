@@ -1,5 +1,5 @@
 ﻿import { Mail, MapPin } from 'lucide-react';
-import medina_pfp from '../assets/medina_pfp.jpg'
+import medina_bg from '../assets/medina_bg.jpg'
 
 const Hero = () => {
   const handleScroll = (id) => {
@@ -15,13 +15,13 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute top-0 right-0 w-full lg:w-[55%] h-full z-0 opacity-100 pointer-events-none">
         <img 
-          src={medina_pfp} 
+          src={medina_bg} 
           alt="Paul Benedict Medina Background" 
           className="w-full h-full object-cover object-center lg:object-right"
         />
         
         {/* Left fade to blend with the text column */}
-        <div className="absolute inset-y-0 left-0 w-[90%] sm:w-3/4 lg:w-1/2 bg-gradient-to-r from-theme-bg via-theme-bg/80 to-transparent"></div>
+        <div className="absolute inset-y-0 left-0 w-[90%] sm:w-3/4 lg:w-1/2 bg-gradient-to-r from-theme-bg via-theme-bg/55 to-transparent"></div>
         
         {/* Vertical fade to blend with the section below */}
         <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-theme-bg/30 to-transparent"></div>
@@ -52,7 +52,7 @@ const Hero = () => {
 
             {/* Bio */}
             <p className="text-base text-theme-text font-medium mb-10 leading-relaxed max-w-xl">
-             Third-year BS Information Technology student with a solid foundation in web development. Proficient in modern web technologies seeking for freelancing projects to provide reliable solutions.
+             Third-year BS Information Technology student with foundation in web development. Competent in modern web technologies seeking for freelancing projects to provide reliable solutions.
             </p>
             
             {/* Action Buttons */}

@@ -1,5 +1,5 @@
 
-import { GraduationCap, Award, Sparkles, Circle, Plus } from 'lucide-react';
+import { GraduationCap, Award, Sparkles, Circle, Plus, Briefcase } from 'lucide-react';
 
 const Education = () => {
   return (
@@ -18,16 +18,16 @@ const Education = () => {
         <Plus className="absolute top-[60%] left-[40%] text-theme-primary animate-float" size={32} />
       </div>
 
-      <div className="container mx-auto max-w-4xl relative z-10">
+      <div className="container mx-auto max-w-6xl xl:max-w-[1200px] relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-theme-primary inline-block relative">
-            Education & Certifications
+            Background & Experience
             <span className="absolute -bottom-4 left-0 w-full h-1 bg-theme-primary/30 rounded-full"></span>
           </h2>
         </div>
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Education */}
           <div className="bg-theme-card p-8 border border-theme-text/10 rounded-sm">
             <div className="flex items-center gap-4 mb-8 text-theme-primary">
@@ -47,6 +47,26 @@ const Education = () => {
                 <h4 className="font-bold text-base text-theme-text">TVL-ICT: Computer Systems Servicing</h4>
                 <p className="text-theme-primary font-bold text-sm mb-1">Don Alejandro Roces Sr. Science-Technology High School • 2022 - 2024</p>
                 <p className="text-theme-text-muted text-sm">Graduated with honors. Rank 5 in Batch.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Affiliations & Experience */}
+          <div className="bg-theme-card p-8 border border-theme-text/10 rounded-sm">
+            <div className="flex items-center gap-4 mb-8 text-theme-primary">
+              <Briefcase size={28} />
+              <h3 className="text-xl font-bold font-heading">Experience</h3>
+            </div>
+
+            <div className="space-y-6">
+              <div className="relative pl-6 border-l-2 border-theme-primary/30">
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-theme-primary border-2 border-theme-card"></div>
+                <h4 className="font-bold text-base text-theme-text leading-snug">IT Professional Mentee & Course Facilitator</h4>
+                <p className="text-theme-primary font-bold text-sm mb-1">Pathways to Higher Education • July 2023 - Present</p>
+                <ul className="text-theme-text-muted text-sm space-y-1.5 list-disc pl-4 mt-3">
+                  <li>Selected for an IT mentorship program gaining insights on industry-standard practices.</li>
+                  <li>Facilitated a 5-week course, managing community boards and participant feedback.</li>
+                </ul>
               </div>
             </div>
           </div>
